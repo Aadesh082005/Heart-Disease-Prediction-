@@ -1,0 +1,28 @@
+{
+    "model_name": "Random Forest Classifier",
+    "model_version": "1.0",
+    "feature_names": [
+        "age",
+        "sex",
+        "cp",
+        "trestbps",
+        "chol",
+        "fbs",
+        "restecg",
+        "thalach",
+        "exang",
+        "oldpeak",
+        "slope",
+        "ca",
+        "thal"
+    ],
+    "target_column": "target",
+    "evaluation_metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "roc_auc": 1.0,
+        "test_samples": 205
+    }
+}
