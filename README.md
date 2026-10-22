@@ -169,11 +169,6 @@ This project demonstrates practical skills in Python development, data preproces
 
 CardioAI is intended for educational and demonstration purposes only. It has not been established as a clinically validated diagnostic system. Model outputs may be inaccurate and must not be used to diagnose or rule out heart disease, select treatment, or delay professional medical care.
 
-## 👨‍💻 Author
-
-**YOUR NAME**
-
-GitHub: [@YOUR-USERNAME](https://github.com/YOUR-USERNAME)
 
 ## 📄 License
 
