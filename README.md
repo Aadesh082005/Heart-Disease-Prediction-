@@ -214,15 +214,6 @@ I would like to express my sincere gratitude to my respected sir for his valuabl
 
 His guidance has helped me improve my understanding of machine learning integration, application development, and project implementation.
 
-👨‍💻 Author
-
-Yash Kherde
-
-Computer Engineering — Data Science
-
-GitHub: Add your GitHub profile link here.
-
-LinkedIn: Add your LinkedIn profile link here.
 
 ---
 
