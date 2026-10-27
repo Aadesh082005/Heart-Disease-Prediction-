@@ -1,0 +1,101 @@
+
+{% extends "base.html" %}
+{% block title %}CardioSense AI | Heart Health{% endblock %}
+
+{% block content %}
+<section class="hero container">
+    <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse-dot"></span> INTELLIGENCE FOR HEART HEALTH</div>
+        <h1>Understand your heart.<br><span>Take informed steps.</span></h1>
+        <p class="hero-description">
+            Explore an educational machine-learning assessment using
+            selected cardiovascular health indicators.
+        </p>
+        <div class="hero-actions">
+            <a class="button button-primary" href="{{ url_for('predict') }}">
+                Start assessment <span>→</span>
+            </a>
+            <a class="button button-secondary" href="{{ url_for('about') }}">
+                Explore the project
+            </a>
+        </div>
+        <div class="trust-note">
+            <span class="check-circle">✓</span>
+            Transparent inputs · Educational results · Privacy-conscious design
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="heart-card">
+            <div class="heart-card-top">
+                <span class="mini-icon">♥</span>
+                <span>HEART HEALTH</span>
+                <span class="live-dot"></span>
+            </div>
+            <div class="heart-symbol">♥</div>
+            <div class="ecg">
+                <svg viewBox="0 0 320 70" role="img" aria-label="Decorative heartbeat line">
+                    <path d="M0 37 H70 L87 36 L100 13 L117 58 L135 4 L155 48 L168 37 H220 L233 36 L247 23 L260 37 H320"
+                          fill="none" stroke="currentColor" stroke-width="2.5"
+                          stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="heart-card-bottom">
+                <span>Cardiovascular insights</span>
+                <span class="mini-arrow">↗</span>
+            </div>
+        </div>
+        <div class="floating-note note-top">
+            <span class="note-icon">✳</span>
+            <div><strong>AI-assisted</strong><small>Pattern analysis</small></div>
+        </div>
+        <div class="floating-note note-bottom">
+            <span class="note-icon">⌁</span>
+            <div><strong>13 indicators</strong><small>Model input features</small></div>
+        </div>
+    </div>
+</section>
+
+<section class="container section">
+    <div class="section-heading">
+        <div>
+            <div class="eyebrow">YOUR EXPERIENCE</div>
+            <h2>A clearer view of the process.</h2>
+        </div>
+        <p>Simple inputs. A model-generated estimate. Clear limitations.</p>
+    </div>
+
+    <div class="feature-grid">
+        <article class="feature-card">
+            <div class="feature-icon mint">01</div>
+            <h3>Enter health indicators</h3>
+            <p>Provide the requested demographic and cardiovascular measurements.</p>
+            <a href="{{ url_for('predict') }}">Begin assessment →</a>
+        </article>
+        <article class="feature-card">
+            <div class="feature-icon aqua">02</div>
+            <h3>Run the model</h3>
+            <p>A saved machine-learning model processes the submitted feature values.</p>
+            <a href="{{ url_for('about') }}">How it works →</a>
+        </article>
+        <article class="feature-card">
+            <div class="feature-icon lavender">03</div>
+            <h3>Review the output</h3>
+            <p>See the predicted class and, when available, the model's estimated probability.</p>
+            <a href="{{ url_for('dashboard') }}">View overview →</a>
+        </article>
+    </div>
+</section>
+
+<section class="container disclaimer-banner">
+    <div class="disclaimer-symbol">i</div>
+    <div>
+        <strong>An important note about your health</strong>
+        <p>This educational tool cannot diagnose, rule out or treat heart disease.
+           Seek medical advice for health concerns. For emergency symptoms,
+           contact local emergency services.</p>
+    </div>
+</section>
+{% endblock %}

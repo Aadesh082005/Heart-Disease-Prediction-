@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+{% block title %}About | CardioSense AI{% endblock %}
+
+{% block content %}
+<section class="container page-section">
+    <div class="eyebrow">ABOUT THE PROJECT</div>
+    <h1>Technology with a purpose.</h1>
+    <p class="intro-text">
+        CardioSense AI is an educational web application demonstrating
+        how a saved machine-learning classifier processes cardiovascular
+        feature values and returns a predicted class.
+    </p>
+
+    <div class="feature-grid about-grid">
+        <article class="feature-card">
+            <div class="feature-icon mint">ML</div>
+            <h3>Machine learning</h3>
+            <p>Uses a Logistic Regression classifier trained on a labeled dataset.</p>
+        </article>
+        <article class="feature-card">
+            <div class="feature-icon aqua">SC</div>
+            <h3>Feature scaling</h3>
+            <p>Applies the saved StandardScaler before sending values to the model.</p>
+        </article>
+        <article class="feature-card">
+            <div class="feature-icon lavender">WEB</div>
+            <h3>Web application</h3>
+            <p>Flask handles form validation, prediction requests and result rendering.</p>
+        </article>
+    </div>
+
+    <article class="panel methodology-panel">
+        <div class="eyebrow">METHODOLOGY</div>
+        <h2>How the prediction works</h2>
+        <ol class="method-list">
+            <li><strong>Input:</strong> collect 13 feature values from the assessment form.</li>
+            <li><strong>Validation:</strong> check that values are present and within configured bounds.</li>
+            <li><strong>Scaling:</strong> transform inputs using the saved training scaler.</li>
+            <li><strong>Inference:</strong> generate a class prediction and, when supported, a class probability.</li>
+            <li><strong>Presentation:</strong> display the model output and a reminder of its limitations.</li>
+        </ol>
+    </article>
+
+    <article class="disclaimer-banner">
+        <div class="disclaimer-symbol">i</div>
+        <div>
+            <strong>Scope and limitations</strong>
+            <p>This project is not a certified medical device. Model quality depends on the training data, preprocessing, feature definitions and validation. Its outputs must not be used for diagnosis or treatment decisions.</p>
+        </div>
+    </article>
+</section>
+{% endblock %}

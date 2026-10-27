@@ -1,0 +1,78 @@
+
+{% extends "base.html" %}
+{% block title %}Assessment Result | CardioSense AI{% endblock %}
+
+{% block content %}
+<section class="container page-section">
+    <div class="eyebrow">CARDIOSENSE / ASSESSMENT OUTPUT</div>
+    <div class="result-header">
+        <div>
+            <h1>Your model result</h1>
+            <p class="muted">The following output comes from the saved machine-learning model.</p>
+        </div>
+        <a class="button button-secondary" href="{{ url_for('predict') }}">New assessment</a>
+    </div>
+
+    <article class="result-card">
+        <div class="result-symbol {% if result.prediction == 1 %}result-attention{% else %}result-neutral{% endif %}">
+            {% if result.prediction == 1 %} ! {% else %} ✓ {% endif %}
+        </div>
+
+        <div class="eyebrow">PREDICTED CLASS</div>
+        <h2>
+            {% if result.prediction == 1 %}
+                Positive class predicted
+            {% else %}
+                Negative class predicted
+            {% endif %}
+        </h2>
+        <p class="result-description">
+            {% if result.prediction == 1 %}
+                The model returned class 1. This is not proof of heart disease.
+                Discuss any health concerns with a qualified healthcare professional.
+            {% else %}
+                The model returned class 0. This does not rule out heart disease
+                or guarantee that your heart is healthy.
+            {% endif %}
+        </p>
+
+        {% if result.risk_score is not none %}
+        <div class="probability-block">
+            <div class="probability-label">
+                <span>Model estimated probability for class 1</span>
+                <strong>{{ result.risk_score }}%</strong>
+            </div>
+            <div class="probability-track">
+                <div class="probability-fill" style="width: {{ result.risk_score }}%"></div>
+            </div>
+            <small>This is a model probability, not a clinically validated risk score.</small>
+        </div>
+        {% else %}
+        <p class="muted">The model does not provide class probabilities.</p>
+        {% endif %}
+    </article>
+
+    <article class="panel input-summary">
+        <div class="panel-heading">
+            <div><h2>Submitted input summary</h2><p>Values used in this prediction</p></div>
+            <span class="pill">{{ values|length }} features</span>
+        </div>
+        <div class="summary-grid">
+            {% for name, value in values.items() %}
+            <div class="summary-item">
+                <span>{{ name }}</span>
+                <strong>{{ value }}</strong>
+            </div>
+            {% endfor %}
+        </div>
+    </article>
+
+    <div class="disclaimer-banner">
+        <div class="disclaimer-symbol">!</div>
+        <div>
+            <strong>This is not a medical diagnosis</strong>
+            <p>Do not use this result to start, stop or change treatment. Seek professional medical advice. If you have chest pain, severe shortness of breath or other emergency symptoms, contact emergency services immediately.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

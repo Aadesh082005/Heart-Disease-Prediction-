@@ -1,0 +1,92 @@
+
+{% extends "base.html" %}
+{% block title %}Overview | CardioSense AI{% endblock %}
+
+{% block content %}
+<section class="container page-section">
+    <div class="eyebrow">YOUR WORKSPACE / OVERVIEW</div>
+    <div class="page-heading-row">
+        <div>
+            <h1>Model overview</h1>
+            <p class="muted">A quick guide to the CardioSense assessment workflow.</p>
+        </div>
+        <a class="button button-primary" href="{{ url_for('predict') }}">＋ New assessment</a>
+    </div>
+
+    <div class="stat-grid">
+        <article class="stat-card">
+            <div class="stat-label">INPUT FEATURES</div>
+            <div class="stat-number">13</div>
+            <p>Required model inputs</p>
+            <span class="stat-mark teal">↗</span>
+        </article>
+        <article class="stat-card">
+            <div class="stat-label">MODEL TYPE</div>
+            <div class="stat-number text-model">Logistic Regression</div>
+            <p>Supervised classification</p>
+            <span class="stat-mark blue">⌘</span>
+        </article>
+        <article class="stat-card">
+            <div class="stat-label">PREPROCESSING</div>
+            <div class="stat-number text-model">StandardScaler</div>
+            <p>Feature standardization</p>
+            <span class="stat-mark purple">≋</span>
+        </article>
+    </div>
+
+    <div class="dashboard-grid">
+        <article class="panel">
+            <div class="panel-heading">
+                <div><h2>Assessment workflow</h2><p>How a prediction is produced</p></div>
+                <span class="pill">3 steps</span>
+            </div>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <span class="workflow-number">01</span>
+                    <div><strong>Input collection</strong><p>Collect the 13 required feature values.</p></div>
+                    <span class="workflow-status">INPUT</span>
+                </div>
+                <div class="workflow-step">
+                    <span class="workflow-number">02</span>
+                    <div><strong>Preprocessing</strong><p>Apply the saved scaler before prediction.</p></div>
+                    <span class="workflow-status">PROCESS</span>
+                </div>
+                <div class="workflow-step">
+                    <span class="workflow-number">03</span>
+                    <div><strong>Model output</strong><p>Display the predicted class and optional probability.</p></div>
+                    <span class="workflow-status">RESULT</span>
+                </div>
+            </div>
+            <a class="button button-primary full-button" href="{{ url_for('predict') }}">
+                Open assessment <span>→</span>
+            </a>
+        </article>
+
+        <article class="panel model-panel">
+            <div class="panel-heading">
+                <div><h2>About the model</h2><p>Current configuration</p></div>
+                <span class="status-dot"></span>
+            </div>
+            <div class="model-illustration">
+                <div class="model-circle">AI</div>
+                <div class="model-orbit orbit-a"></div>
+                <div class="model-orbit orbit-b"></div>
+            </div>
+            <div class="model-details">
+                <div><span>Algorithm</span><strong>Logistic Regression</strong></div>
+                <div><span>Scaling</span><strong>StandardScaler</strong></div>
+                <div><span>Inputs</span><strong>13 features</strong></div>
+                <div><span>Output</span><strong>Binary class</strong></div>
+            </div>
+            <p class="small-note">This overview describes the intended configuration. It does not indicate live model health or clinical validation.</p>
+        </article>
+    </div>
+
+    <div class="disclaimer-banner">
+        <div class="disclaimer-symbol">i</div>
+        <div><strong>Educational use only</strong>
+            <p>Model output is not a diagnosis. No patient history is saved by this demo application.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
